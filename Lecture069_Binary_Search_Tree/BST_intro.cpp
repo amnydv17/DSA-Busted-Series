@@ -123,10 +123,94 @@ void takeInput(Node* &root){
   }
 }
 
+Node* minVal(Node* root)
+{
+  Node* temp = root;
+
+  while(temp->left != NULL)
+  {
+    temp = temp->left;
+  }
+  return temp;
+}
+
+Node* maxVal(Node* root)
+{
+  Node* temp = root;
+
+  while(temp->right != NULL)
+  {
+    temp = temp->right;
+  }
+  return temp;
+}
+
+// Deletation in BST
+Node* deleteInBST(Node* root, int val)
+{
+  if(root == NULL)
+  return root;
+
+  if(root->data == val)
+  {
+    // 0 child
+    if(root->left == NULL && root->right == NULL)
+    {
+      delete root;
+      return NULL;
+    }
+
+    // 1 child
+
+    // left child
+    if(root->left != NULL && root->right == NULL)
+    { 
+      Node* temp = root->left;
+      delete root;
+      return temp;
+    }
+
+    // right child
+    if(root->left == NULL && root->right != NULL)
+    { 
+      Node* temp = root->right;
+      delete root;
+      return temp;
+    }
+
+    // 2 child
+    // copy max value of root->left
+    if(root->left != NULL && root->right != NULL)
+    { 
+      int maxi = maxVal(root->left)->data;
+      root->data = maxi;
+      root->left = deleteInBST(root->left, maxi);
+      return root;
+    }
+  }
+
+  else if(root->data > val)
+  {
+    // left part me jao
+    root->left = deleteInBST(root->left, val);
+    return root;
+  }
+
+  else
+  {
+    // right part me jao
+    root->right = deleteInBST(root->right, val);
+    return root;
+  }
+}
+
+
 int main(){
   Node* root = NULL;
   cout<<"Enter data to Create BST" <<endl;
   takeInput(root);
+
+
   cout<<"printing LevelOrder BST"<<endl;
   levelOrderTraversal(root);
 
@@ -138,6 +222,33 @@ int main(){
 
   cout << endl << "postorder traversal is:  ";
   postorder(root);
+
+  cout<<endl<<"Min Value of BST is-->"<<minVal(root) -> data <<endl;
+
+  cout<<"Max Value of BST is-->"<<maxVal(root) -> data <<endl;
+
+
+  // deletion
+  root = deleteInBST(root, 50);
+
+  cout<<endl<<endl<<"After Deletion"<<endl;
+
+  cout<<"printing LevelOrder BST"<<endl;
+  levelOrderTraversal(root);
+
+  cout << "inorder traversal is:  ";
+  inorder(root); 
+
+  cout << endl << "preorder traversal is:  ";
+  preorder(root); 
+
+  cout << endl << "postorder traversal is:  ";
+  postorder(root);
+
+  cout<<endl<<"Min Value of BST is-->"<<minVal(root) -> data <<endl;
+
+  cout<<"Max Value of BST is-->"<<maxVal(root) -> data <<endl;
+
 
  return 0;
 }
