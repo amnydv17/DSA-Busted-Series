@@ -17,6 +17,8 @@ class Node {
     }
 };
 
+
+// Traversal In BST
 void inorder(Node* root) {
     //base case
     if(root == NULL) {
@@ -84,6 +86,8 @@ void levelOrderTraversal(Node* root) {
 
 }
 
+
+// Insertion in BST
 
 Node* insertIntoBST(Node* root, int d)
 {
