@@ -17,11 +17,8 @@ class Node {
     }
 };
 
-<<<<<<< HEAD
 
 // Traversal In BST
-=======
->>>>>>> 2ec475d7dfbe176acaafb32c8be04b1daf5ba628
 void inorder(Node* root) {
     //base case
     if(root == NULL) {
@@ -90,11 +87,8 @@ void levelOrderTraversal(Node* root) {
 }
 
 
-<<<<<<< HEAD
 // Insertion in BST
 
-=======
->>>>>>> 2ec475d7dfbe176acaafb32c8be04b1daf5ba628
 Node* insertIntoBST(Node* root, int d)
 {
   // base case
@@ -129,7 +123,6 @@ void takeInput(Node* &root){
   }
 }
 
-<<<<<<< HEAD
 Node* minVal(Node* root)
 {
   Node* temp = root;
@@ -212,17 +205,12 @@ Node* deleteInBST(Node* root, int val)
 }
 
 
-=======
->>>>>>> 2ec475d7dfbe176acaafb32c8be04b1daf5ba628
 int main(){
   Node* root = NULL;
   cout<<"Enter data to Create BST" <<endl;
   takeInput(root);
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 2ec475d7dfbe176acaafb32c8be04b1daf5ba628
   cout<<"printing LevelOrder BST"<<endl;
   levelOrderTraversal(root);
 
@@ -235,7 +223,6 @@ int main(){
   cout << endl << "postorder traversal is:  ";
   postorder(root);
 
-<<<<<<< HEAD
   cout<<endl<<"Min Value of BST is-->"<<minVal(root) -> data <<endl;
 
   cout<<"Max Value of BST is-->"<<maxVal(root) -> data <<endl;
@@ -263,7 +250,5 @@ int main(){
   cout<<"Max Value of BST is-->"<<maxVal(root) -> data <<endl;
 
 
-=======
->>>>>>> 2ec475d7dfbe176acaafb32c8be04b1daf5ba628
  return 0;
 }
