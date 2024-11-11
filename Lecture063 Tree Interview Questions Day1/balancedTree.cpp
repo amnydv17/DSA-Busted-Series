@@ -118,7 +118,7 @@ class Solution{
         bool leftAns = left.first;
         bool rightAns = right.first;
         
-        bool diff = abs (left.second - right.second ) <=1;
+        bool diff = abs (left.second - right.second ) <=1; 
         
         pair<bool,int> ans;
         ans.second = max(left.second, right.second) + 1;
